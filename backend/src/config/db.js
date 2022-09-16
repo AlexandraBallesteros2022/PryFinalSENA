@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require("mysql");
 const conexion = mysql.createConnection({
    host: process.env.HOST,
    database: process.env.DB_NAME,
@@ -8,8 +8,11 @@ const conexion = mysql.createConnection({
 });
 
 conexion.connect((error) => {
-   if (error) throw error;
-   console.log("DB conectada");
+   if (error) {
+      throw error;
+   } else {
+      console.log("DB conectada");
+   }
 });
 
-module.exports=conexion;
+module.exports = conexion;
