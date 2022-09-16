@@ -1,0 +1,18 @@
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+node_modules/*
+
+# Visual Studio Code
+/.vscode
+.vscode/*
+.history/*
+
+# System files
+.DS_Store
+Thumbs.db
+
+package-lock.json
+*.env
+*.spec.ts
