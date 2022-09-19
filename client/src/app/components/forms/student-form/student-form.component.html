@@ -1,6 +1,6 @@
-<ng-container>
+<ng-container *ngIf="show">
   <div class="bg">
-    <h1>nuevo estudiante</h1>
+    <h1> {{title}} </h1>
     <form>
       <div>
         <label for="">nombre completo</label>
@@ -86,7 +86,8 @@
         <label for="">estudios superiores</label>
         <input type="text" />
       </div>
-      <input type="submit" />
+      <button>Guardar</button>
+      <button type="button">cancelar</button>
     </form>
   </div>
 </ng-container>

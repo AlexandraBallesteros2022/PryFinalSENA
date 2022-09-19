@@ -19,5 +19,8 @@
         </tr>
       </tbody>
     </table>
+    <button (click)="registro.showHidden()" >editar</button>
+
   </div>
 </ng-container>
+<app-registro #registro title="editar empleado" [show]="false" ></app-registro>

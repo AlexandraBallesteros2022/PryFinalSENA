@@ -71,4 +71,6 @@
       </tbody>
     </table>
   </div>
+  <button type="button" (click)="formStudent.showHidden()">editar</button>
 </ng-container>
+<app-student-form [show]="false" title="editar estudiante" #formStudent></app-student-form>

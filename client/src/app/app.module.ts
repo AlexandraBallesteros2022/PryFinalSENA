@@ -11,9 +11,7 @@ import { LoginComponent } from './components/forms/login/login.component';
 
 //forms
 import { RegistroComponent } from './components/forms/registro/registro.component';
-import { NewStudentComponent } from './components/forms/new-student/new-student.component';
-import { EditStudentComponent } from './components/forms/edit-student/edit-student.component';
-import { EditEmpleoyeeComponent } from './components/forms/edit-empleoyee/edit-empleoyee.component';
+import { StudentFormComponent } from './components/forms/student-form/student-form.component';
 
 //tables
 import { StudentTableComponent } from './components/tables/student-table/student-table.component';
@@ -30,11 +28,9 @@ import { MainComponent } from './pages/main/main.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderBarComponent,
     RegistroComponent,
-    NewStudentComponent,
-    EditStudentComponent,
-    EditEmpleoyeeComponent,
+    HeaderBarComponent,
+    StudentFormComponent,
     StudentTableComponent,
     EmpleoyeeTableComponent,
     StudentsTableComponent,
