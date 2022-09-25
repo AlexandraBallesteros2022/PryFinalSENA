@@ -1,12 +1,28 @@
-<ng-container >
+<ng-container>
   <nav>
-    <div>
+    <div class="container">
       <h2>CARACTERIZACION</h2>
       <menu>
-        <div class="icon"></div>
-        <div class="icon"></div>
-        <div class="icon"></div>
-        <div class="icon"></div>
+        <div>
+          <a routerLink="/main">
+            <fa-icon [icon]="icon.iconsMenu.home" class="icon"></fa-icon>
+          </a>
+        </div>
+        <div>
+          <a routerLink="/estudiantes">
+            <fa-icon [icon]="icon.iconsMenu.estudiante" class="icon"></fa-icon>
+          </a>
+        </div>
+        <div>
+          <a routerLink="/empleados">
+            <fa-icon [icon]="icon.iconsMenu.empleado" class="icon"></fa-icon>
+          </a>
+        </div>
+        <div>
+          <a >
+            <fa-icon [icon]="icon.iconsMenu.salir" class="icon"></fa-icon>
+          </a>
+        </div>
       </menu>
     </div>
   </nav>

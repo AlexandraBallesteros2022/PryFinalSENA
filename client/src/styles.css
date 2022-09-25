@@ -14,7 +14,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #fff;
   font-family: 'Inter', sans-serif;
 }
 
@@ -29,6 +28,7 @@ label {
 }
 
 .bg {
+  color: #ffffff;
   border-radius: 16px;
   background: linear-gradient(17deg, rgba(0, 56, 109, 0.8673844537815126) 31%, rgba(141, 4, 133, 0.87) 75%);
   box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.4);
@@ -44,6 +44,7 @@ label {
 }
 
 .cont_input .iconB {
+  color: #ffffff;
   font-size: 2.2rem;
   filter: drop-shadow(2px 2px 1px #000000)
 }
@@ -56,7 +57,7 @@ label {
 
 .input {
   background: var(--bg-input);
-  border: 2px solid #000000;
+  border: 3px solid #000000;
   border-radius: 8px;
   height: 45px;
   padding: 8px;
@@ -70,7 +71,7 @@ label {
   width: 100%;
   height: 45px;
   background-color: var(--turquesa);
-  border: 2px solid #000000;
+  border: 3px solid #000000;
   border-radius: 8px;
   color: #000000;
   font-size: 18px;

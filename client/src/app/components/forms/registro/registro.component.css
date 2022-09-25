@@ -27,3 +27,12 @@
 .bg form .cont_input {
   margin: 10px;
 }
+
+.bg .enlaces{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.bg .enlaces a:hover{
+ color: aquamarine;
+}

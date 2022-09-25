@@ -12,14 +12,18 @@ const login = async (nombreUsuario, contrasenia) => {
         result.length == 0 ||
         !(await bcrypt.compare(contrasenia, result[0].contrasenia))
       ) {
-        const data = { result, fields };
-        return resolve(data);
+        return reject(error);
       }
+      const data = { result, fields };
+      return resolve(data);
     });
   });
 };
 
 const signUp = async (body = { ...args }) => {
+  let passHash = await bcrypt.hash(body.contrasenia, 8);
+  body.contrasenia = passHash;
+
   return new Promise((resolve, reject) => {
     const queryString = "INSERT INTO empleado SET ?"; //query para la peticion
     db.query(queryString, [body], async (error, result, fields) => {

@@ -41,8 +41,6 @@ export class RegistroComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.signupForm.value);
-
     this.authSvc.signUp(this.signupForm.value).subscribe({
       next: (res: any) => {
         alert(res);
