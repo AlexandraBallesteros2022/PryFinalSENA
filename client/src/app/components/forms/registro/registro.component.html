@@ -1,28 +1,91 @@
 <ng-container *ngIf="show">
-  <div class="bg">
-    <h1> {{title}} </h1>
-    <form>
-      <div>
-        <label for="">Nombre Completo</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">codigo de docente</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">correo electronico</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">usuario</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">contraseña</label>
-        <input type="text" />
-      </div>
-      <input type="submit" />
-    </form>
+  <div class="container">
+    <div class="bg">
+      <h1>{{ title }}</h1>
+      <form [formGroup]="signupForm" (ngSubmit)="submit()">
+        <div class="cont_input">
+          <div>
+            <label for="nombreCompleto">Nombre Completo</label>
+          </div>
+          <div class="icon-input">
+            <fa-icon [icon]="icons.iconsRegister.id" class="iconB"></fa-icon>
+            <input
+              type="text"
+              formControlName="nombreCompleto"
+              name="nombreCompleto"
+              class="input"
+            />
+          </div>
+        </div>
+        <div class="cont_input">
+          <div>
+            <label for="codigoDocente">codigo de docente</label>
+          </div>
+          <div class="icon-input">
+            <fa-icon [icon]="icons.iconsRegister.qr" class="iconB"></fa-icon>
+            <input
+              type="text"
+              formControlName="codigoDocente"
+              name="codigoDocente"
+              class="input"
+            />
+          </div>
+        </div>
+        <div class="cont_input">
+          <div>
+            <label for="correoE">correo electronico</label>
+          </div>
+          <div class="icon-input">
+            <fa-icon
+              [icon]="icons.iconsRegister.correo"
+              class="iconB"
+            ></fa-icon>
+            <input
+              type="text"
+              formControlName="correoE"
+              name="correoE"
+              class="input"
+            />
+          </div>
+        </div>
+        <div class="cont_input">
+          <div>
+            <label for="nombreUsuario">usuario</label>
+          </div>
+          <div class="icon-input">
+            <fa-icon
+              [icon]="icons.iconsRegister.usuario"
+              class="iconB"
+            ></fa-icon>
+            <input
+              type="text"
+              class="input"
+              name="nombreUsuario"
+              formControlName="nombreUsuario"
+            />
+          </div>
+        </div>
+        <div class="cont_input">
+          <div>
+            <label for="contrasenia">contraseña</label>
+          </div>
+          <div class="icon-input">
+            <fa-icon
+              [icon]="icons.iconsRegister.password"
+              class="iconB"
+            ></fa-icon>
+            <input
+              type="text"
+              formControlName="contrasenia"
+              name="contrasenia"
+              class="input"
+            />
+          </div>
+        </div>
+        <div class="boton">
+          <input type="submit" class="btn_sub" value="Registrarse" />
+        </div>
+      </form>
+    </div>
   </div>
 </ng-container>

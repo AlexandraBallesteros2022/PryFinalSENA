@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  height: var(--full-screen);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 70px;
+  height: max-content
+}
+
+.bg h1 {
+  text-transform: uppercase;
+}
+
+.bg form {
+  display: flex;
+  flex-direction: column;
+}
+
+.bg form .cont_input {
+  margin: 10px;
+}

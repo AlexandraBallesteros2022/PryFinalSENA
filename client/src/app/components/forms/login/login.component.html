@@ -1,15 +1,45 @@
 <ng-container>
-  <form>
-    <div>
-      <fa-icon [icon]="icons.iconsLogin.usuario"></fa-icon>
-      <input type="text" />
+  <div class="container">
+    <div class="bg">
+      <h1>CARACTERIZACION</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div class="cont_input">
+          <div>
+            <label for="user">usuario</label>
+          </div>
+          <div class="icon-input">
+            <fa-icon [icon]="icons.iconsLogin.usuario" class="iconB"></fa-icon>
+            <input
+              type="text"
+              class="input"
+              name="nombreUsuario"
+              formControlName="nombreUsuario"
+            />
+          </div>
+        </div>
+
+        <div class="cont_input">
+          <div>
+            <label for="contrasenia">Contraseña</label>
+          </div>
+          <div class="icon-input">
+            <fa-icon [icon]="icons.iconsLogin.password" class="iconB"></fa-icon>
+            <input
+              type="password"
+              class="input"
+              name="contrasenia"
+              formControlName="contrasenia"
+            />
+          </div>
+        </div>
+        <div class="boton">
+          <input type="submit" class="btn_sub" value="Iniciar Sesion" />
+        </div>
+      </form>
+      <div class="enlaces">
+        <p>Si no tienes cuenta <a routerLink="/registro">Registrate aqui</a></p>
+        <a routerLink="">Soy Estudiante</a>
+      </div>
     </div>
-    <div class="input_pass">
-      <fa-icon [icon]="icons.iconsLogin.password"></fa-icon>
-      <input type="password" />
-    </div>
-    <div class="boton">
-      <input type="submit" />
-    </div>
-  </form>
+  </div>
 </ng-container>

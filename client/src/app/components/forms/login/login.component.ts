@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { IconsService } from 'src/app/services/icons.service';
 
 @Component({
@@ -7,7 +10,31 @@ import { IconsService } from 'src/app/services/icons.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(public icons: IconsService) {}
+  loginForm: FormGroup = this.initForm();
 
-  ngOnInit(): void {}
+  constructor(
+    public icons: IconsService,
+    private authSvc: AuthService,
+    private readonly fb: FormBuilder,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.loginForm = this.initForm();
+  }
+
+  initForm(): FormGroup {
+    return this.fb.group({
+      nombreUsuario: [''],
+      contrasenia: [''],
+    });
+  }
+
+  submit() {
+    this.authSvc.login(this.loginForm.value).subscribe({
+      next: (res: any) => {
+        this.router.navigate(['/main']);
+      },
+    });
+  }
 }

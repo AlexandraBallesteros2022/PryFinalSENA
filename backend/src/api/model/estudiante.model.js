@@ -1,6 +1,6 @@
 const db = require("../../config/db");
 /**
- * Campos de la tabla estudiantess
+ * Campos de la tabla estudiantes
  * Documento, nombreCompleto, correoE, celular, ciudad, departamento, barrio, direccion, estratoSocioEconomico, conviveCon, ingresos, quienCubrePasajes, profesionPadre, profesionMadre, tieneVehiculoPropio, marcaVehiculo, tipoVehiculo, bachilleratoCulminado, InstitucionCulmino, deportePractica, estudiosSuperiores
  */
 
@@ -32,7 +32,7 @@ const getOneEstudiante = async (idEstudiante) => {
 //traer un estudiante por Documento
 const getEstudianteBydocumento = async (documento) => {
    return new Promise((resolve, reject) => {
-      const queryString = "SELECT * FROM estudiantes WHERE Documento = ?"; //query para la peticion
+      const queryString = "SELECT * FROM estudiantes WHERE documento = ?"; //query para la peticion
       db.query(queryString, [documento], (error, result, fields) => {
          if (error) return reject(error);
          console.log(result);
@@ -69,7 +69,7 @@ const updateOneEstudiante = async (idEstudiante, body = { ...args }) => {
 //eliminar un estudiante por id
 const deleteOneEstudiante = async (idEstudiante) => {
    return new Promise((resolve, reject) => {
-      const queryString = "DELETE FROM estudiantess WHERE idEstudiante = ?"; //query para la peticion
+      const queryString = "DELETE FROM estudiantes WHERE idEstudiante = ?"; //query para la peticion
       db.query(queryString, [idEstudiante], (error, result, fields) => {
          if (error) return reject(error);
          const data = { result, fields };

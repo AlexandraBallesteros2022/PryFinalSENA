@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+:root {
+  --morado: #8D0485;
+  --azul: #00386D;
+  --turquesa: #99DDC8;
+  --blanco: #D9D9D9;
+  --gris: #777777;
+  --bg-input: #E7E7E7;
+  --full-screen: calc(100vh - 60px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  color: var(--turquesa);
+  text-decoration: none;
+}
+
+label {
+  text-transform: capitalize;
+  font-family: 'Inter', sans-serif;
+}
+
+.bg {
+  border-radius: 16px;
+  background: linear-gradient(17deg, rgba(0, 56, 109, 0.8673844537815126) 31%, rgba(141, 4, 133, 0.87) 75%);
+  box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.cont_input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.cont_input .iconB {
+  font-size: 2.2rem;
+  filter: drop-shadow(2px 2px 1px #000000)
+}
+
+.icon-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  background: var(--bg-input);
+  border: 2px solid #000000;
+  border-radius: 8px;
+  height: 45px;
+  padding: 8px;
+  margin: 5px;
+  color: #000000;
+  font-size: 1rem;
+
+}
+
+.btn_sub {
+  width: 100%;
+  height: 45px;
+  background-color: var(--turquesa);
+  border: 2px solid #000000;
+  border-radius: 8px;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: -0.017em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn_sub:hover {
+  background-color: aquamarine;
+}
