@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 //base
 import { AppRoutingModule } from './app-routing.module';
@@ -48,7 +51,11 @@ import { MainComponent } from './pages/main/main.component';
     HttpClientModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
+  exports: [MatTableModule, MatPaginatorModule],
   providers: [],
   bootstrap: [AppComponent],
 })

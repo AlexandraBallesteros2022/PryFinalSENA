@@ -1,18 +1,22 @@
-<div class="bg">
-  <a routerLink="/estudiantes">
-    <div class="card">
-      <fa-icon [icon]="icons.iconsMain.estudiante"></fa-icon>
-      <caption>
-        Estudiantes
-      </caption>
+<div class="container">
+  <div class="bg">
+    <div class="container-card">
+      <a routerLink="/estudiantes">
+        <div class="card">
+          <fa-icon [icon]="icons.iconsMain.estudiante"></fa-icon>
+          <div class="name">
+            <p>Estudiantes</p>
+          </div>
+        </div>
+      </a>
+      <a routerLink="/empleados">
+        <div class="card">
+          <fa-icon [icon]="icons.iconsMain.empleado"></fa-icon>
+          <div class="name">
+            <p>empleados</p>
+          </div>
+        </div>
+      </a>
     </div>
-  </a>
-  <a routerLink="/empleados">
-    <div class="card">
-      <fa-icon [icon]="icons.iconsMain.empleado"></fa-icon>
-      <caption>
-        empleados
-      </caption>
-    </div>
-  </a>
+  </div>
 </div>

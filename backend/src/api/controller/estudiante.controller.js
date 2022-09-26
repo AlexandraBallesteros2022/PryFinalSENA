@@ -3,7 +3,7 @@ const estModel = require("../model/estudiante.model");
 const getEstudiantes = async (req, res) => {
    try {
       const { result } = await estModel.getEstudiantes(); // almacenamos el resultado por si queremos trabajar con el mismo
-      return res.status(200).send(result);
+      return res.json(result);
    } catch (err) {
       console.log(err);
       return res.status(500).send("error");
