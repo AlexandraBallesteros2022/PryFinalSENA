@@ -28,7 +28,10 @@ export class StudentService {
   }
 
   updateOneEstudiante(estudiante: Estudiantes) {
-    return this.http.put(`${this.URL}/estudiantes`, estudiante);
+    return this.http.put(
+      `${this.URL}/estudiantes/${estudiante.idEstudiante}`,
+      estudiante
+    );
   }
 
   deleteOneEstudiante(id: string) {

@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Estudiantes } from 'src/app/models/estudiantes';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -12,6 +11,7 @@ import { StudentService } from 'src/app/services/student.service';
 export class StudentFormComponent implements OnInit {
   @Input() show: boolean = true;
   @Input() title: string = 'nuevo estudiante';
+  @Output() flag = new EventEmitter<boolean>();
   studenForm: FormGroup = this.initForm();
 
   constructor(
@@ -30,6 +30,7 @@ export class StudentFormComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.fb.group({
+      idEstudiante: [''],
       documento: [''],
       nombreCompleto: [''],
       correoE: [''],
@@ -55,24 +56,34 @@ export class StudentFormComponent implements OnInit {
   }
 
   data(estudiante: any) {
-    console.log(estudiante);
-    this.studenForm.setV = estudiante;
+    this.studenForm.patchValue(estudiante);
     this.showHidden();
   }
 
   cancelar() {
-    this.router.navigate(['']);
+    if (this.title === 'nuevo estudiante') {
+      this.router.navigate(['']);
+    } else if (this.title === 'editar estudiante') {
+      this.showHidden();
+    }
   }
 
   submit() {
-    console.log(this.studenForm.value);
-    // if (this.title === 'nuevo estudiante') {
-    //   this.estSvc.createOneEstudiante(this.studenForm.value).subscribe({
-    //     next: (res: any) => {
-    //       this.router.navigate(['']);
-    //     },
-    //   });
-    // } else {
-    // }
+    if (this.title === 'nuevo estudiante') {
+      this.estSvc.createOneEstudiante(this.studenForm.value).subscribe({
+        next: (res: any) => {
+          alert(res);
+          this.router.navigate(['']);
+        },
+      });
+    } else if (this.title === 'editar estudiante') {
+      this.estSvc.updateOneEstudiante(this.studenForm.value).subscribe({
+        next: (res) => {
+          alert(res);
+          this.flag.emit(true);
+          this.showHidden();
+        },
+      });
+    }
   }
 }

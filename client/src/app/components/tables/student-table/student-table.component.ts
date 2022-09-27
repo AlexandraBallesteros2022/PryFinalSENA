@@ -50,7 +50,11 @@ export class StudentTableComponent implements OnInit {
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
-  constructor(private route: ActivatedRoute, private estSvc: StudentService,private router:Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private estSvc: StudentService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getOneEstudiante(this.id);
@@ -64,11 +68,17 @@ export class StudentTableComponent implements OnInit {
     });
   }
 
+  reload(flag: boolean): void {
+    if (flag) {
+      this.getOneEstudiante(this.id);
+    }
+  }
+
   deleteOneEstudiante() {
     this.estSvc.deleteOneEstudiante(this.id).subscribe({
       next: (res) => {
         alert(res);
-        this.router.navigate(['/estudiantes'])
+        this.router.navigate(['/estudiantes']);
       },
     });
   }

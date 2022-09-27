@@ -10,7 +10,7 @@ route
 
    .post("/", estCtr.createEstudiante)
 
-   .patch("/:idEstuadiante", estCtr.updateOneEstudiante)
+   .put("/:idEstudiante", estCtr.updateOneEstudiante)
 
    .delete("/:idEstudiante", estCtr.deleteOneEstudiante);
 

@@ -48,8 +48,8 @@ const createEstudiante = async (req, res) => {
   const { body } = req;
 
   try {
-    const { result } = await estModel.createEstudiante({ body }); // almacenamos el resultado por si queremos trabajar con el mismo
-    return res.status(200).send("¡Estudiante creado exitosamente!");
+    const { result } = await estModel.createEstudiante( body ); // almacenamos el resultado por si queremos trabajar con el mismo
+    return res.json("¡Estudiante creado exitosamente!");
   } catch (err) {
     console.log(err);
     return res.status(500).send("error");
@@ -62,10 +62,8 @@ const updateOneEstudiante = async (req, res) => {
   const { idEstudiante } = params;
 
   try {
-    const { result } = await estModel.updateOneEstudiante(idEstudiante, {
-      body,
-    }); // almacenamos el resultado por si queremos trabajar con el mismo
-    return res.status(200).send("¡Estudiante Actualizado exitosamente!");
+    const { result } = await estModel.updateOneEstudiante(idEstudiante, body); // almacenamos el resultado por si queremos trabajar con el mismo
+    return res.json("¡Estudiante Actualizado exitosamente!");
   } catch (err) {
     console.log(err);
     return res.status(500).send("error");

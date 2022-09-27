@@ -1,4 +1,7 @@
 .container {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,9 +10,9 @@
 }
 
 .bg {
-  width: 80%;
-  height: 10%;
+  width: 1360px;
   margin: 25px 40px 0 40px;
+  z-index: 1;
 }
 
 .center {
