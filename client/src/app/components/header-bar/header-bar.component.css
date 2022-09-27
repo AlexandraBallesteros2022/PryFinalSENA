@@ -5,6 +5,10 @@ nav {
   background-color: var(--gris);
 }
 
+a{
+  cursor: pointer;
+}
+
 .container {
   height: 100%;
   display: flex;

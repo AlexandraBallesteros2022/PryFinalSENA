@@ -12,6 +12,6 @@ route
 
    .patch("/:idEstuadiante", estCtr.updateOneEstudiante)
 
-   .delete("/:idEstuadiante", estCtr.deleteOneEstudiante);
+   .delete("/:idEstudiante", estCtr.deleteOneEstudiante);
 
 module.exports = route;

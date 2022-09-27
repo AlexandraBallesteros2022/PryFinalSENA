@@ -67,6 +67,13 @@ label {
 
 }
 
+.botones{
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
 .btn_sub {
   width: 100%;
   height: 45px;
@@ -79,6 +86,7 @@ label {
   line-height: 22px;
   letter-spacing: -0.017em;
   text-align: center;
+  text-transform: capitalize;
   cursor: pointer;
 }
 

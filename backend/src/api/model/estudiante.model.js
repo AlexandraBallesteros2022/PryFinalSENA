@@ -22,7 +22,6 @@ const getOneEstudiante = async (idEstudiante) => {
       const queryString = "SELECT * FROM estudiantes WHERE idEstudiante = ?"; //query para la peticion
       db.query(queryString, [idEstudiante], (error, result, fields) => {
          if (error) return reject(error);
-         console.log(result);
          const data = { result, fields };
          return resolve(data);
       });

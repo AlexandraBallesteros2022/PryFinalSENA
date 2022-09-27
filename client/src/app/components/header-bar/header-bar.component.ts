@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IconsService } from 'src/app/services/icons.service';
 
 @Component({
@@ -7,7 +8,12 @@ import { IconsService } from 'src/app/services/icons.service';
   styleUrls: ['./header-bar.component.css'],
 })
 export class HeaderBarComponent implements OnInit {
-  constructor(public icon: IconsService) {}
+  constructor(public icon: IconsService,private router:Router) {}
 
   ngOnInit(): void {}
+
+  logOut(){
+    sessionStorage.setItem('session','false');
+    this.router.navigate([''])
+  }
 }

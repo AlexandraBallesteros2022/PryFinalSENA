@@ -14,16 +14,16 @@ table {
 }
 
 th.mat-header-cell {
-
-  border-collapse: collapse;
-  border: 0.2px solid black;
+  text-transform: capitalize;
+  border-left: 1px solid;
   padding: 5px;
+  width: 150px;
 }
 
 td.mat-cell  {
-  border-collapse: collapse;
-  border: 0.2px solid black;
+  border-left: 1px solid;
   padding: 5px;
+  width: 150px;
 }
 
 .mat-row .mat-cell {

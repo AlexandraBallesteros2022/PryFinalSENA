@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
 
     this.authSvc.login(this.loginForm.value).subscribe({
       next: (res: any) => {
+        sessionStorage.setItem('session', 'true');
         this.router.navigate(['/main']);
       },
     });

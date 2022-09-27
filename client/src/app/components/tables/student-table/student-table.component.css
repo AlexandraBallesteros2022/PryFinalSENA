@@ -1,0 +1,33 @@
+.container-table {
+  width: 1250px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  background: #ffffff;
+  margin-top: 15px;
+
+}
+
+th.mat-header-cell {
+  text-transform: capitalize;
+  border-left: 1px solid;
+  padding: 5px;
+  width: 150px;
+}
+
+td.mat-cell  {
+  border-left: 1px solid;
+  padding: 5px;
+  width: 150px;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+
+.btn_sub{
+  width: 40%;
+}

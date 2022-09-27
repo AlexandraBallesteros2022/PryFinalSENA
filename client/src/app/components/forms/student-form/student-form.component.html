@@ -1,93 +1,204 @@
 <ng-container *ngIf="show">
-  <div class="bg">
-    <h1> {{title}} </h1>
-    <form>
-      <div>
-        <label for="">nombre completo</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">documento</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">correo electronico</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">celular</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">ciudad</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">departamento</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">barrio</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">direccion</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">estrato socio economico</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">¿convive con?</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">ingresos</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">¿quien cubre los pasajes?</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">profesion del padre</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">profesion de la madre</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">¿tiene vehiculo propio?</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">marca del vehiculo</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">tipo de vehiculo</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">¿termino el bachillerato?</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">institucion donde lo termino</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">¿practica algun deporte?</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label for="">estudios superiores</label>
-        <input type="text" />
-      </div>
-      <button>Guardar</button>
-      <button type="button">cancelar</button>
-    </form>
+  <div class="container">
+    <div class="bg">
+      <h1>{{ title }}</h1>
+      <form class="parent" [formGroup]="studenForm" (ngSubmit)="submit()">
+        <div class="div1 center">
+          <label for="nombreCompleto">nombre completo</label>
+          <input
+            class="input"
+            type="text"
+            name="nombreCompleto"
+            formControlName="nombreCompleto"
+          />
+        </div>
+        <div class="div2 center">
+          <label for="documento">documento</label>
+          <input
+            class="input"
+            type="text"
+            name="documento"
+            formControlName="documento"
+          />
+        </div>
+        <div class="div3 center">
+          <label for="correoE">correo electronico</label>
+          <input
+            class="input"
+            type="text"
+            name="correoE"
+            formControlName="correoE"
+          />
+        </div>
+        <div class="div4 center">
+          <label for="celular">celular</label>
+          <input
+            class="input"
+            type="text"
+            name="celular"
+            formControlName="celular"
+          />
+        </div>
+        <div class="div5 center">
+          <label for="ciudad">ciudad</label>
+          <input
+            class="input"
+            type="text"
+            name="ciudad"
+            formControlName="ciudad"
+          />
+        </div>
+        <div class="div6 center">
+          <label for="departamento">departamento</label>
+          <input
+            class="input"
+            type="text"
+            name="departamento"
+            formControlName="departamento"
+          />
+        </div>
+        <div class="div7 center">
+          <label for="barrio">barrio</label>
+          <input
+            class="input"
+            type="text"
+            name="barrio"
+            formControlName="barrio"
+          />
+        </div>
+        <div class="div8 center">
+          <label for="direccion">direccion</label>
+          <input
+            class="input"
+            type="text"
+            name="direccion"
+            formControlName="direccion"
+          />
+        </div>
+        <div class="div9 center">
+          <label for="estratoSocioEconomico">estrato socio economico</label>
+          <input
+            class="input"
+            type="text"
+            name="estratoSocioEconomico"
+            formControlName="estratoSocioEconomico"
+          />
+        </div>
+        <div class="div10 center">
+          <label for="conviveCon">¿convive con?</label>
+          <input
+            class="input"
+            type="text"
+            name="conviveCon"
+            formControlName="conviveCon"
+          />
+        </div>
+        <div class="div11 center">
+          <label for="ingresos">ingresos</label>
+          <input
+            class="input"
+            type="number"
+            name="ingresos"
+            formControlName="ingresos"
+          />
+        </div>
+        <div class="div12 center">
+          <label for="quienCubrePasajes">¿quien cubre los pasajes?</label>
+          <input
+            class="input"
+            type="text"
+            name="quienCubrePasajes"
+            formControlName="quienCubrePasajes"
+          />
+        </div>
+        <div class="div13 center">
+          <label for="profesionPadre">profesion del padre</label>
+          <input
+            class="input"
+            type="text"
+            name="profesionPadre"
+            formControlName="profesionPadre"
+          />
+        </div>
+        <div class="div14 center">
+          <label for="profesionMadre">profesion de la madre</label>
+          <input
+            class="input"
+            type="text"
+            name="profesionMadre"
+            formControlName="profesionMadre"
+          />
+        </div>
+        <div class="div15 center">
+          <label for="tieneVehiculoPropio">¿tiene vehiculo propio?</label>
+          <input
+            class="input"
+            type="text"
+            name="tieneVehiculoPropio"
+            formControlName="tieneVehiculoPropio"
+          />
+        </div>
+        <div class="div16 center">
+          <label for="marcaVehiculo">marca del vehiculo</label>
+          <input
+            class="input"
+            type="text"
+            name="marcaVehiculo"
+            formControlName="marcaVehiculo"
+          />
+        </div>
+        <div class="div17 center">
+          <label for="tipoVehiculo">tipo de vehiculo</label>
+          <input
+            class="input"
+            type="text"
+            name="tipoVehiculo"
+            formControlName="tipoVehiculo"
+          />
+        </div>
+        <div class="div18 center">
+          <label for="bachilleratoCulminado">¿termino el bachillerato?</label>
+          <input
+            class="input"
+            type="text"
+            name="bachilleratoCulminado"
+            formControlName="bachilleratoCulminado"
+          />
+        </div>
+        <div class="div19 center">
+          <label for="institucionCulmino">institucion donde lo termino</label>
+          <input
+            class="input"
+            type="text"
+            name="institucionCulmino"
+            formControlName="institucionCulmino"
+          />
+        </div>
+        <div class="div20 center">
+          <label for="deportePractica">¿practica algun deporte?</label>
+          <input
+            class="input"
+            type="text"
+            name="deportePractica"
+            formControlName="deportePractica"
+          />
+        </div>
+        <div class="div21 center">
+          <label for="estudiosSuperiores">estudios superiores</label>
+          <input
+            class="input"
+            type="text"
+            name="estudiosSuperiores"
+            formControlName="estudiosSuperiores"
+          />
+        </div>
+        <div class="botones div22">
+          <button class="btn_sub" type="submit">Guardar</button>
+          <button type="button" class="btn_sub" (click)="cancelar()">
+            cancelar
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </ng-container>
