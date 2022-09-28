@@ -24,4 +24,12 @@ export class AuthService {
   signUp(user: Empleados) {
     return this.http.post(`${this.URL}/auths/signup`, user);
   }
+
+  isAuth(): boolean {
+    const { session } = sessionStorage;
+    if (session==='false' || !sessionStorage.getItem('session')) {
+      return false;
+    }
+    return true;
+  }
 }

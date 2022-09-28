@@ -11,16 +11,34 @@ import { StudentComponent } from './pages/student/student.component';
 import { StudentsComponent } from './pages/students/students.component';
 import { EmpleoyeeComponent } from './pages/empleoyee/empleoyee.component';
 import { EmpleoyeesComponent } from './pages/empleoyees/empleoyees.component';
-
 import { MainComponent } from './pages/main/main.component';
+
+//guards
+import { AuthGuard } from './guads/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'main', component: MainComponent },
-  { path: 'estudiante/:idEstudiante', component: StudentComponent },
-  { path: 'estudiantes', component: StudentsComponent },
-  { path: 'empleado/:idDocente', component: EmpleoyeeComponent },
-  { path: 'empleados', component: EmpleoyeesComponent },
+  { path: 'main', component: MainComponent, canActivate: [AuthGuard] },
+  {
+    path: 'estudiante/:idEstudiante',
+    component: StudentComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'estudiantes',
+    component: StudentsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'empleado/:idDocente',
+    component: EmpleoyeeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'empleados',
+    component: EmpleoyeesComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'registro', component: RegistroComponent },
   { path: 'nuevo-estudiante', component: StudentFormComponent },
 ];

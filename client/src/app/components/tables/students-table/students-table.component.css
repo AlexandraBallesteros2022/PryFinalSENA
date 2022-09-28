@@ -18,13 +18,13 @@ th.mat-header-cell {
   text-transform: capitalize;
   border-left: 1px solid;
   padding: 5px;
-  width: 150px;
+  width: 200px;
 }
 
 td.mat-cell  {
   border-left: 1px solid;
   padding: 5px;
-  width: 150px;
+  width: 200px;
 }
 
 .mat-row .mat-cell {

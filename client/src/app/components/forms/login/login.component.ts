@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.initForm();
+    sessionStorage.setItem('session', 'false');
   }
 
   initForm(): FormGroup {
