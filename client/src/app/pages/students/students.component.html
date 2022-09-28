@@ -1,6 +1,10 @@
 <div class="container">
   <div class="bg">
     <h1>Estudiantes</h1>
-    <app-students-table></app-students-table>
+    <app-students-table #estudiantesTable></app-students-table>
+    <div class="botones">
+      <button class="btn_sub" (click)="studentForm.showHidden()">Agregar</button>
+    </div>
   </div>
 </div>
+<app-student-form #studentForm title="agregar estudiante" [show]="false" (flag)="estudiantesTable.reload($event)"></app-student-form>

@@ -26,6 +26,9 @@ export class StudentFormComponent implements OnInit {
 
   showHidden() {
     this.show = !this.show;
+    if (this.title === 'agregar estudiante') {
+      this.studenForm.reset();
+    }
   }
 
   initForm(): FormGroup {
@@ -63,7 +66,10 @@ export class StudentFormComponent implements OnInit {
   cancelar() {
     if (this.title === 'nuevo estudiante') {
       this.router.navigate(['']);
-    } else if (this.title === 'editar estudiante') {
+    } else if (
+      this.title === 'editar estudiante' ||
+      this.title === 'agregar estudiante'
+    ) {
       this.showHidden();
     }
   }
@@ -84,6 +90,18 @@ export class StudentFormComponent implements OnInit {
           this.showHidden();
         },
       });
+    } else if (this.title === 'agregar estudiante') {
+      this.estSvc.createOneEstudiante(this.studenForm.value).subscribe({
+        next: (res: any) => {
+          alert(res);
+          this.flag.emit(true);
+          this.showHidden();
+        },
+      });
     }
+  }
+
+  valid(): boolean {
+    return this.title === 'nuevo estudiante';
   }
 }

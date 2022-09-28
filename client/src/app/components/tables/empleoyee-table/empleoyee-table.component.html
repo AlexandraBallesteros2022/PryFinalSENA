@@ -1,26 +1,94 @@
 <ng-container>
-  <h1>{{title}}</h1>
-  <div class="table_bg">
-    <table>
-      <thead>
-        <th>a</th>
-        <th>a</th>
-        <th>a</th>
-        <th>a</th>
-        <th>a</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>b</td>
-          <td>b</td>
-          <td>b</td>
-          <td>b</td>
-          <td>b</td>
-        </tr>
-      </tbody>
-    </table>
-    <button (click)="registro.showHidden()" >editar</button>
+  <h1>{{ title }}</h1>
+  <div class="container-table">
+    <table mat-table [dataSource]="dataSource">
+      <!-- id Column -->
+      <ng-container matColumnDef="idDocente">
+        <th mat-header-cell *matHeaderCellDef>No</th>
+        <td
+          mat-cell
+          [ngClass]="{ empleado: valid() }"
+          *matCellDef="let element"
+        >
+          {{ element.idDocente }}
+        </td>
+      </ng-container>
 
+      <!-- nombreCompleto Column-->
+      <ng-container matColumnDef="nombreCompleto">
+        <th mat-header-cell *matHeaderCellDef>nombre Completo</th>
+        <td
+          mat-cell
+          [ngClass]="{ empleado: valid() }"
+          *matCellDef="let element"
+        >
+          {{ element.nombreCompleto }}
+        </td>
+      </ng-container>
+
+      <!-- nombreCompleto Column -->
+      <ng-container matColumnDef="nombreUsuario">
+        <th mat-header-cell *matHeaderCellDef>nombre Usuario</th>
+        <td
+          mat-cell
+          [ngClass]="{ empleado: valid() }"
+          *matCellDef="let element"
+        >
+          {{ element.nombreUsuario }}
+        </td>
+      </ng-container>
+
+      <!-- correoE Column -->
+      <ng-container matColumnDef="correoE">
+        <th mat-header-cell *matHeaderCellDef>correo Electronico</th>
+        <td
+          mat-cell
+          [ngClass]="{ empleado: valid() }"
+          *matCellDef="let element"
+        >
+          {{ element.correoE }}
+        </td>
+      </ng-container>
+
+      <!-- codigoDocente Column -->
+      <ng-container matColumnDef="codigoDocente">
+        <th mat-header-cell *matHeaderCellDef>codigo Docente</th>
+        <td
+          mat-cell
+          [ngClass]="{ empleado: valid() }"
+          *matCellDef="let element"
+        >
+          {{ element.codigoDocente }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        [ngClass]="{ empleado: valid() }"
+        (click)="viewInfo(row.idDocente)"
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+
+    <mat-paginator
+      [pageSize]="8"
+      showFirstLastButtons
+      aria-label="Seleciones una pagina por empelados"
+    >
+    </mat-paginator>
+  </div>
+
+  <div class="botones" *ngIf="valid()">
+    <button class="btn_sub" (click)="registro.data(dataSource.data[0])">
+      Editar
+    </button>
+    <button class="btn_sub" (click)="deleteOneEmpleado()">Eliminar</button>
   </div>
 </ng-container>
-<app-registro #registro title="editar empleado" [show]="false" ></app-registro>
+<app-registro
+  #registro
+  title="editar empleado"
+  [show]="false"
+  (flag)="reload($event)"
+></app-registro>

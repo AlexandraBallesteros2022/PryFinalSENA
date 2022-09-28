@@ -1,0 +1,53 @@
+.container-table {
+  width: 1250px;
+  max-height: 550px;
+  overflow: auto;
+}
+
+h1 {
+  text-transform: capitalize;
+}
+
+table {
+  margin-top: 20px;
+  width: 100%;
+  background: #ffffff;
+
+}
+
+.mat-paginator-container {
+  width: 100%;
+}
+
+th.mat-header-cell {
+  text-transform: capitalize;
+  border-left: 1px solid;
+  padding: 5px;
+  width: 150px;
+}
+
+td.mat-cell {
+  border-left: 1px solid;
+  padding: 5px;
+  width: 150px;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+.mat-row.empleado .mat-cell.empleado {
+  border: none;
+  border-left: 1px solid;
+  cursor: text;
+}
+
+.btn_sub {
+  width: 40%;
+}

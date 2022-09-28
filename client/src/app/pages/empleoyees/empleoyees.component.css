@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  height: var(--full-screen);
+  display: flex;
+  justify-content: center;
+}
+
+.bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 0px 0px 10px 10px;
+  padding: 0;
+  width: 95%;
+  height: 95%;
+}
+
+.btn_sub{
+  width: 80%;
+}

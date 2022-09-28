@@ -64,4 +64,10 @@ export class StudentsTableComponent implements OnInit, AfterViewInit {
   viewInfo(idEstudiante: number) {
     this.router.navigate([`/estudiante/${idEstudiante}`]);
   }
+
+  reload(flag: boolean) {
+    if (flag) {
+      this.getEstudiantes();
+    }
+  }
 }

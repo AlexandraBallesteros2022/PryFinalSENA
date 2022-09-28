@@ -1,5 +1,6 @@
 <ng-container *ngIf="show">
   <div class="container">
+    <div class="black_bg" *ngIf="!valid()"></div>
     <div class="bg">
       <h1>{{ title }}</h1>
       <form class="parent" [formGroup]="studenForm" (ngSubmit)="submit()">

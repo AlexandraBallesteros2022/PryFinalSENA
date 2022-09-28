@@ -1,8 +1,10 @@
 <ng-container *ngIf="show">
   <div class="container">
+    <div class="black_bg" *ngIf="!valid()"></div>
     <div class="bg">
       <h1>{{ title }}</h1>
       <form [formGroup]="signupForm" (ngSubmit)="submit()">
+        <input type="hidden" name="idDocente" formControlName="idDocente">
         <div class="cont_input">
           <div>
             <label for="nombreCompleto">Nombre Completo</label>
@@ -65,7 +67,7 @@
             />
           </div>
         </div>
-        <div class="cont_input">
+        <div class="cont_input" *ngIf="validPass()">
           <div>
             <label for="contrasenia">contraseña</label>
           </div>
@@ -82,11 +84,20 @@
             />
           </div>
         </div>
-        <div class="boton">
+        <div class="boton" *ngIf="valid()">
           <input type="submit" class="btn_sub" value="Registrarse" />
         </div>
+        <div class="boton" *ngIf="!valid()">
+          <input type="submit" class="btn_sub" value="Guardar" />
+          <input
+            type="button"
+            class="btn_sub"
+            value="Cancelar"
+            (click)="showHidden()"
+          />
+        </div>
       </form>
-      <div class="enlaces">
+      <div class="enlaces" *ngIf="valid()">
         <p>Si tienes cuenta <a routerLink="/">Inicia Sesion aqui</a></p>
       </div>
     </div>

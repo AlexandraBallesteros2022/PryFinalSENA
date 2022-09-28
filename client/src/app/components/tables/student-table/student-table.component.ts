@@ -68,12 +68,6 @@ export class StudentTableComponent implements OnInit {
     });
   }
 
-  reload(flag: boolean): void {
-    if (flag) {
-      this.getOneEstudiante(this.id);
-    }
-  }
-
   deleteOneEstudiante() {
     this.estSvc.deleteOneEstudiante(this.id).subscribe({
       next: (res) => {
@@ -81,5 +75,11 @@ export class StudentTableComponent implements OnInit {
         this.router.navigate(['/estudiantes']);
       },
     });
+  }
+  
+  reload(flag: boolean): void {
+    if (flag) {
+      this.getOneEstudiante(this.id);
+    }
   }
 }
