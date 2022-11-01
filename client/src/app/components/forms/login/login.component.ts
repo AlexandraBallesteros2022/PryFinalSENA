@@ -32,8 +32,6 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.loginForm.value);
-
     this.authSvc.login(this.loginForm.value).subscribe({
       next: (res: any) => {
         sessionStorage.setItem('session', 'true');
