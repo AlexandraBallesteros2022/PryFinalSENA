@@ -14,7 +14,7 @@ export class StudentFormComponent implements OnInit {
   @Input() title: string = 'nuevo estudiante';
   @Output() flag = new EventEmitter<boolean>();
   studenForm: FormGroup = this.initForm();
-  localizacion: Localizacion[]=[];
+  localizacion: Localizacion[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -86,8 +86,9 @@ export class StudentFormComponent implements OnInit {
 
           alert(res);
           this.router.navigate(['']);
-        },error(err) {
-            alert(err)
+        },
+        error(err) {
+          alert(err);
         },
       });
     } else if (this.title === 'editar estudiante') {
@@ -112,8 +113,7 @@ export class StudentFormComponent implements OnInit {
   getLoc() {
     this.estSvc.getLocalizacion().subscribe({
       next: (res: any) => {
-        console.log(res);
-        this.localizacion=res
+        this.localizacion = res;
       },
     });
   }

@@ -15,9 +15,20 @@ const getLocalizaciones = async () => {
       });
    });
 };
+const getAllEstudiantesByIdLoc = async (idLoc) => {
+   return new Promise((resolve, reject) => {
+      const queryString = "select * from estudiantes est inner join localizacion loc on est.idLoc = loc.idLoc inner join departamentos dep on dep.idDepartamento = loc.idDepartamento and est.idLoc = ?"; //query para la peticion
+      db.query(queryString,[idLoc], (error, result, fields) => {
+         if (error) return reject(error);
+         const data = { result, fields };
+         return resolve(data);
+      });
+   });
+};
 
 const locModel = {
     getLocalizaciones,
+    getAllEstudiantesByIdLoc
  };
  
  module.exports = locModel;

@@ -28,6 +28,7 @@ import { StudentsComponent } from './pages/students/students.component';
 import { EmpleoyeeComponent } from './pages/empleoyee/empleoyee.component';
 import { EmpleoyeesComponent } from './pages/empleoyees/empleoyees.component';
 import { MainComponent } from './pages/main/main.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MainComponent } from './pages/main/main.component';
     StudentComponent,
     LoginComponent,
     MainComponent,
+    BuscadorComponent,
   ],
   imports: [
     BrowserModule,

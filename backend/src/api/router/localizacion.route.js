@@ -4,7 +4,7 @@ const locCtr = require("../controller/localizacion.controller");
 route
    .get("/", locCtr.getLocalizaciones)
 
-//    .get("/:idEstudiante", locCtr.getOneEstudiante)
+   .get("/buscar/estudiante/:idLoc", locCtr.getAllEstudiantesByIdLoc)
 
 //    .get("/buscar/:documento", locCtr.getEstudianteByDocumento)
 

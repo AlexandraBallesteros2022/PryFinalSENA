@@ -15,6 +15,7 @@ import { MainComponent } from './pages/main/main.component';
 
 //guards
 import { AuthGuard } from './guads/auth.guard';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
   },
   { path: 'registro', component: RegistroComponent },
   { path: 'nuevo-estudiante', component: StudentFormComponent },
+  { path: 'buscar', component: BuscadorComponent },
 ];
 
 @NgModule({

@@ -41,4 +41,8 @@ export class StudentService {
   getLocalizacion() {
     return this.http.get(`${this.URL}/localizacion`);
   }
+
+  getAllEstudiantesByIdLoc(idLoc: string) {
+    return this.http.get(`${this.URL}/localizacion/buscar/estudiante/${idLoc}`);
+  }
 }
