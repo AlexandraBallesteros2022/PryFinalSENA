@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Empleados } from 'src/app/models/empleados';
 import { Estudiantes } from 'src/app/models/estudiantes';
 import { Localizacion } from 'src/app/models/localizacion';
+import { EmpleoyeeService } from 'src/app/services/empleoyee.service';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -13,11 +15,27 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./buscador.component.css'],
 })
 export class BuscadorComponent implements OnInit {
+  persona: string = this.route.snapshot.params['persona'];
+  @Input() title!: string;
+
+  empleado:boolean=false
+  estudiante:boolean=false
   buscarForm: FormGroup = this.initForm();
   estudiantes: Estudiantes[] = [];
   localizacion: Localizacion[] = [];
 
-  displayedColumns: string[] = [
+  displayedColumnsEmp: string[] = [
+    'idDocente',
+    'nombreCompleto',
+    'nombreUsuario',
+    'correoE',
+    'codigoDocente',
+  ];
+
+  dataSourceEmp = new MatTableDataSource<Empleados>();
+  clickedRowsEmp = new Set<Empleados>();
+
+  displayedColumnsEst: string[] = [
     'idEstudiante',
     'documento',
     'nombreCompleto',
@@ -42,24 +60,35 @@ export class BuscadorComponent implements OnInit {
     'estudiosSuperiores',
   ];
 
-  dataSource = new MatTableDataSource<Estudiantes>(this.estudiantes);
-  clickedRows = new Set<Estudiantes>();
+  dataSourceEst = new MatTableDataSource<Estudiantes>(this.estudiantes);
+  clickedRowsEst = new Set<Estudiantes>();
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginatorEst!: MatPaginator;
+  @ViewChild(MatPaginator) paginatorEmp!: MatPaginator;
 
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
+    this.dataSourceEst.paginator = this.paginatorEst;
+    this.dataSourceEmp.paginator = this.paginatorEmp;
   }
 
   constructor(
     private readonly fb: FormBuilder,
-    public estSvc: StudentService,
-    private router: Router
+    private estSvc: StudentService,
+    private empSvc:EmpleoyeeService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.buscarForm = this.initForm();
     this.getLoc();
+    if (this.persona === 'estudiantes') {
+      this.estudiante=true
+      this.empleado=false
+    }else if(this.persona==='empleados'){
+      this.estudiante=false
+      this.empleado=true
+    }
   }
 
   initForm(): FormGroup {
@@ -72,13 +101,17 @@ export class BuscadorComponent implements OnInit {
   }
 
   submit() {
-    this.estSvc
-      .getAllEstudiantesByIdLoc(this.buscarForm.value.idLoc)
-      .subscribe({
-        next: (res: any) => {
-          this.dataSource = res;
-        },
-      });
+    if (this.persona === 'estudiantes') {
+      this.estSvc
+        .getAllEstudiantesByIdLoc(this.buscarForm.value.idLoc)
+        .subscribe({
+          next: (res: any) => {
+            this.dataSourceEst = res;
+          },
+        });
+    }else if(this.persona==='empleados'){
+
+    }
   }
 
   getLoc() {
@@ -87,5 +120,13 @@ export class BuscadorComponent implements OnInit {
         this.localizacion = res;
       },
     });
+  }
+
+  valid(): boolean {
+    if (this.title === 'empleado') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

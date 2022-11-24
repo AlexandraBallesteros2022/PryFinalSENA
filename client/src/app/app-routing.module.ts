@@ -42,7 +42,7 @@ const routes: Routes = [
   },
   { path: 'registro', component: RegistroComponent },
   { path: 'nuevo-estudiante', component: StudentFormComponent },
-  { path: 'buscar', component: BuscadorComponent },
+  { path: 'buscar/:persona', component: BuscadorComponent },
 ];
 
 @NgModule({

@@ -10,8 +10,8 @@
       </form>
     </div>
     <div class="datos">
-      <div class="container-table">
-        <table mat-table [dataSource]="dataSource">
+      <div class="container-table estudiante" *ngIf="estudiante">
+        <table mat-table [dataSource]="dataSourceEst">
           <!-- documento Column -->
           <ng-container matColumnDef="idEstudiante">
             <th mat-header-cell *matHeaderCellDef>No</th>
@@ -155,12 +155,12 @@
             </td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsEst"></tr>
           <tr
             mat-row
             (click)="viewInfo(row.idEstudiante)"
-            [class.demo-row-is-clicked]="clickedRows.has(row)"
-            *matRowDef="let row; columns: displayedColumns"
+            [class.demo-row-is-clicked]="clickedRowsEst.has(row)"
+            *matRowDef="let row; columns: displayedColumnsEst"
           ></tr>
         </table>
 
@@ -168,6 +168,84 @@
           [pageSize]="8"
           showFirstLastButtons
           aria-label="Select page of student"
+        >
+        </mat-paginator>
+      </div>
+      <div class="container-table empleados" *ngIf="empleado">
+        <table mat-table [dataSource]="dataSourceEmp">
+          <!-- id Column -->
+          <ng-container matColumnDef="idDocente">
+            <th mat-header-cell *matHeaderCellDef>No</th>
+            <td
+              mat-cell
+              [ngClass]="{ empleado: valid() }"
+              *matCellDef="let element"
+            >
+              {{ element.idDocente }}
+            </td>
+          </ng-container>
+
+          <!-- nombreCompleto Column-->
+          <ng-container matColumnDef="nombreCompleto">
+            <th mat-header-cell *matHeaderCellDef>nombre Completo</th>
+            <td
+              mat-cell
+              [ngClass]="{ empleado: valid() }"
+              *matCellDef="let element"
+            >
+              {{ element.nombreCompleto }}
+            </td>
+          </ng-container>
+
+          <!-- nombreCompleto Column -->
+          <ng-container matColumnDef="nombreUsuario">
+            <th mat-header-cell *matHeaderCellDef>nombre Usuario</th>
+            <td
+              mat-cell
+              [ngClass]="{ empleado: valid() }"
+              *matCellDef="let element"
+            >
+              {{ element.nombreUsuario }}
+            </td>
+          </ng-container>
+
+          <!-- correoE Column -->
+          <ng-container matColumnDef="correoE">
+            <th mat-header-cell *matHeaderCellDef>correo Electronico</th>
+            <td
+              mat-cell
+              [ngClass]="{ empleado: valid() }"
+              *matCellDef="let element"
+            >
+              {{ element.correoE }}
+            </td>
+          </ng-container>
+
+          <!-- codigoDocente Column -->
+          <ng-container matColumnDef="codigoDocente">
+            <th mat-header-cell *matHeaderCellDef>codigo Docente</th>
+            <td
+              mat-cell
+              [ngClass]="{ empleado: valid() }"
+              *matCellDef="let element"
+            >
+              {{ element.codigoDocente }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsEmp"></tr>
+          <tr
+            mat-row
+            [ngClass]="{ empleado: valid() }"
+            (click)="viewInfo(row.idDocente)"
+            *matRowDef="let row; columns: displayedColumnsEmp"
+          ></tr>
+        </table>
+
+        <mat-paginator
+          [pageSize]="8"
+          showFirstLastButtons
+          aria-label="Seleciones una pagina por empelados"
         >
         </mat-paginator>
       </div>
