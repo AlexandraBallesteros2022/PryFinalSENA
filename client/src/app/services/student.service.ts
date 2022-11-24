@@ -37,4 +37,8 @@ export class StudentService {
   deleteOneEstudiante(id: string) {
     return this.http.delete(`${this.URL}/estudiantes/${id}`);
   }
+
+  getLocalizacion() {
+    return this.http.get(`${this.URL}/localizacion`);
+  }
 }

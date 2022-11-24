@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Localizacion } from 'src/app/models/localizacion';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class StudentFormComponent implements OnInit {
   @Input() title: string = 'nuevo estudiante';
   @Output() flag = new EventEmitter<boolean>();
   studenForm: FormGroup = this.initForm();
+  localizacion: Localizacion[]=[];
 
   constructor(
     private fb: FormBuilder,
@@ -22,6 +24,7 @@ export class StudentFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.studenForm = this.initForm();
+    this.getLoc();
   }
 
   showHidden() {
@@ -33,13 +36,12 @@ export class StudentFormComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.fb.group({
-      idEstudiante: [''],
+      idEstudiante: [0],
       documento: [''],
       nombreCompleto: [''],
       correoE: [''],
       celular: [''],
-      ciudad: [''],
-      departamento: [''],
+      idLoc: [''],
       barrio: [''],
       direccion: [''],
       estratoSocioEconomico: [''],
@@ -76,10 +78,16 @@ export class StudentFormComponent implements OnInit {
 
   submit() {
     if (this.title === 'nuevo estudiante') {
+      console.log(this.studenForm.value);
+
       this.estSvc.createOneEstudiante(this.studenForm.value).subscribe({
         next: (res: any) => {
+          console.log('hola');
+
           alert(res);
           this.router.navigate(['']);
+        },error(err) {
+            alert(err)
         },
       });
     } else if (this.title === 'editar estudiante') {
@@ -99,6 +107,15 @@ export class StudentFormComponent implements OnInit {
         },
       });
     }
+  }
+
+  getLoc() {
+    this.estSvc.getLocalizacion().subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this.localizacion=res
+      },
+    });
   }
 
   valid(): boolean {

@@ -1,3 +1,5 @@
+import { Localizacion } from './localizacion';
+
 export interface Empleados {
   idDocente?: number;
   nombreCompleto: string;
@@ -5,4 +7,5 @@ export interface Empleados {
   correoE: string;
   contrasenia: string;
   codigoDocente: string;
+  localizacion: Localizacion;
 }

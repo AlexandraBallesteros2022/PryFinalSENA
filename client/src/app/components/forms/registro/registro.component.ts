@@ -38,7 +38,7 @@ export class RegistroComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.fb.group({
-      idDocente: [''],
+      idDocente: [0],
       nombreCompleto: [''],
       correoE: [''],
       codigoDocente: ['', Validators.required],

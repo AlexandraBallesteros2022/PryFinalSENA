@@ -7,7 +7,8 @@ const db = require("../../config/db");
 //traer todos los estudiantes
 const getEstudiantes = async () => {
    return new Promise((resolve, reject) => {
-      const queryString = "SELECT * FROM estudiantes"; //query para la peticion
+      const queryString =
+         "select * from estudiantes est inner join localizacion loc on est.idLoc = loc.idLoc inner join departamentos dep on dep.idDepartamento = loc.idDepartamento"; //query para la peticion
       db.query(queryString, (error, result, fields) => {
          if (error) return reject(error);
          const data = { result, fields };
@@ -19,7 +20,8 @@ const getEstudiantes = async () => {
 //traer un solo estudiantes por id estudiante
 const getOneEstudiante = async (idEstudiante) => {
    return new Promise((resolve, reject) => {
-      const queryString = "SELECT * FROM estudiantes WHERE idEstudiante = ?"; //query para la peticion
+      const queryString =
+         "select * from estudiantes est inner join localizacion loc on est.idLoc = loc.idLoc inner join departamentos dep on dep.idDepartamento = loc.idDepartamento WHERE idEstudiante = ?"; //query para la peticion
       db.query(queryString, [idEstudiante], (error, result, fields) => {
          if (error) return reject(error);
          const data = { result, fields };

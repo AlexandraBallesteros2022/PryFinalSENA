@@ -1,11 +1,14 @@
+import { Localizacion } from './localizacion';
+
 export interface Estudiantes {
   idEstudiante: number;
   documento: string;
   nombreCompleto: string;
   correoE: string;
   celular: string;
-  ciudad: string;
+  localizacion: Localizacion;
   departamento: string;
+  ciudad: string;
   barrio: string;
   direccion: string;
   estratoSocioEconomico: string;

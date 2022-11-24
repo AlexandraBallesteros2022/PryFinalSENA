@@ -15,4 +15,10 @@ conexion.connect((error) => {
    }
 });
 
+// conexion.query('select * from estudiantes est inner join localizacion loc on est.idLoc = loc.idLoc inner join departamentos dep on dep.idDepartamento = loc.idDepartamento',(error, result, fields) => {
+//    if (error) console.log(error); 
+//    const data = { result, fields };
+//    console.log(data.result);
+// });
+
 module.exports = conexion;
