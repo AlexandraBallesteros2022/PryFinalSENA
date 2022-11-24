@@ -72,12 +72,10 @@ export class BuscadorComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.buscarForm.value);
     this.estSvc
       .getAllEstudiantesByIdLoc(this.buscarForm.value.idLoc)
       .subscribe({
         next: (res: any) => {
-          console.log(res);
           this.dataSource = res;
         },
       });
