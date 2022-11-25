@@ -7,10 +7,11 @@ const db = require("../../config/db");
 //traer todos los empleados
 const getEmpleados = async () => {
    return new Promise((resolve, reject) => {
-      const queryString = "SELECT * FROM empleado"; //query para la peticion
+      const queryString = "select * FROM empleado emp INNER JOIN localizacion loc ON emp.idLoc = loc.idLoc INNER JOIN departamentos dep ON dep.idDepartamento = loc.idDepartamento"; //query para la peticion
       db.query(queryString, (error, result, fields) => {
          if (error) return reject(error);
          const data = { result, fields };
+         console.log(result);
          return resolve(data);
       });
    });
@@ -19,7 +20,7 @@ const getEmpleados = async () => {
 //traer un solo empleado por id docente
 const getOneEmpleado = async (idDocente) => {
    return new Promise((resolve, reject) => {
-      const queryString = "SELECT * FROM empleado WHERE idDocente = ?"; //query para la peticion
+      const queryString = "select * FROM empleado emp INNER JOIN localizacion loc ON emp.idLoc = loc.idLoc INNER JOIN departamentos dep ON dep.idDepartamento = loc.idDepartamento WHERE idDocente = ?"; //query para la peticion
       db.query(queryString, [idDocente], (error, result, fields) => {
          if (error) return reject(error);
          const data = { result, fields };

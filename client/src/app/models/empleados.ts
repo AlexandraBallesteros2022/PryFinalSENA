@@ -8,4 +8,6 @@ export interface Empleados {
   contrasenia: string;
   codigoDocente: string;
   localizacion: Localizacion;
+  ciudad: string;
+  departamento: string;
 }

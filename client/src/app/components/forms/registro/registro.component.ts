@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Localizacion } from 'src/app/models/localizacion';
 import { AuthService } from 'src/app/services/auth.service';
 import { EmpleoyeeService } from 'src/app/services/empleoyee.service';
 import { IconsService } from 'src/app/services/icons.service';
@@ -16,6 +17,7 @@ export class RegistroComponent implements OnInit {
   @Output() flag = new EventEmitter<boolean>();
 
   signupForm: FormGroup = this.initForm();
+  localizacion: Localizacion[] = [];
 
   constructor(
     public icons: IconsService,
@@ -27,6 +29,7 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.initForm();
+    this.getLoc();
   }
 
   showHidden() {
@@ -85,5 +88,16 @@ export class RegistroComponent implements OnInit {
 
   validPass(): boolean {
     return this.title === 'registrarse' || this.title === 'nuevo empleado';
+  }
+
+  getLoc() {
+    this.empSvc.getLocalizacion().subscribe({
+      next: (res: any) => {
+        this.localizacion = res;
+      },
+      error(err) {
+        alert('a habido un error');
+      },
+    });
   }
 }

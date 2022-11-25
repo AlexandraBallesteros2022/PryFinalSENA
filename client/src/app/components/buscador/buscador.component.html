@@ -158,7 +158,7 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumnsEst"></tr>
           <tr
             mat-row
-            (click)="viewInfo(row.idEstudiante)"
+            (click)="viewInfoEst(row.idEstudiante)"
             [class.demo-row-is-clicked]="clickedRowsEst.has(row)"
             *matRowDef="let row; columns: displayedColumnsEst"
           ></tr>
@@ -197,7 +197,29 @@
             </td>
           </ng-container>
 
-          <!-- nombreCompleto Column -->
+          <ng-container matColumnDef="departamento">
+            <th mat-header-cell *matHeaderCellDef>Departamento</th>
+            <td
+              mat-cell
+              [ngClass]="{ empleado: valid() }"
+              *matCellDef="let element"
+            >
+              {{ element.departamento }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="ciudad">
+            <th mat-header-cell *matHeaderCellDef>ciudad</th>
+            <td
+              mat-cell
+              [ngClass]="{ empleado: valid() }"
+              *matCellDef="let element"
+            >
+              {{ element.ciudad }}
+            </td>
+          </ng-container>
+
+          <!-- nombreUsuario Column -->
           <ng-container matColumnDef="nombreUsuario">
             <th mat-header-cell *matHeaderCellDef>nombre Usuario</th>
             <td
@@ -237,7 +259,7 @@
           <tr
             mat-row
             [ngClass]="{ empleado: valid() }"
-            (click)="viewInfo(row.idDocente)"
+            (click)="viewInfoEmp(row.idDocente)"
             *matRowDef="let row; columns: displayedColumnsEmp"
           ></tr>
         </table>

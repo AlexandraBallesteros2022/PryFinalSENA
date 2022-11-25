@@ -6,12 +6,6 @@ route
 
    .get("/buscar/estudiante/:idLoc", locCtr.getAllEstudiantesByIdLoc)
 
-//    .get("/buscar/:documento", locCtr.getEstudianteByDocumento)
-
-//    .post("/", locCtr.createEstudiante)
-
-//    .put("/:idEstudiante", locCtr.updateOneEstudiante)
-
-//    .delete("/:idEstudiante", locCtr.deleteOneEstudiante);
+   .get("/buscar/empleado/:idLoc", locCtr.getAllEmpleadosByIdLoc);
 
 module.exports = route;

@@ -26,7 +26,29 @@
         </td>
       </ng-container>
 
-      <!-- nombreCompleto Column -->
+      <ng-container matColumnDef="departamento">
+        <th mat-header-cell *matHeaderCellDef>Departamento</th>
+        <td
+          mat-cell
+          [ngClass]="{ empleado: valid() }"
+          *matCellDef="let element"
+        >
+          {{ element.departamento }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ciudad">
+        <th mat-header-cell *matHeaderCellDef>ciudad</th>
+        <td
+          mat-cell
+          [ngClass]="{ empleado: valid() }"
+          *matCellDef="let element"
+        >
+          {{ element.ciudad }}
+        </td>
+      </ng-container>
+
+      <!-- nombreUsuario Column -->
       <ng-container matColumnDef="nombreUsuario">
         <th mat-header-cell *matHeaderCellDef>nombre Usuario</th>
         <td

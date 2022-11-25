@@ -30,6 +30,8 @@ export class BuscadorComponent implements OnInit {
     'nombreUsuario',
     'correoE',
     'codigoDocente',
+    'departamento',
+    'ciudad'
   ];
 
   dataSourceEmp = new MatTableDataSource<Empleados>();
@@ -96,8 +98,12 @@ export class BuscadorComponent implements OnInit {
       idLoc: [0],
     });
   }
-  viewInfo(idEstudiante: number) {
+  viewInfoEst(idEstudiante: number) {
     this.router.navigate([`/estudiante/${idEstudiante}`]);
+  }
+
+  viewInfoEmp(idDocente: number) {
+    this.router.navigate([`/empleado/${idDocente}`]);
   }
 
   submit() {
@@ -110,7 +116,13 @@ export class BuscadorComponent implements OnInit {
           },
         });
     }else if(this.persona==='empleados'){
-
+      this.empSvc
+        .getAllEmpleadosByIdLoc(this.buscarForm.value.idLoc)
+        .subscribe({
+          next: (res: any) => {
+            this.dataSourceEmp = res;
+          },
+        });
     }
   }
 

@@ -4,7 +4,7 @@
     <div class="bg">
       <h1>{{ title }}</h1>
       <form [formGroup]="signupForm" (ngSubmit)="submit()">
-        <input type="hidden" name="idDocente" formControlName="idDocente">
+        <input type="hidden" name="idDocente" formControlName="idDocente" />
         <div class="cont_input">
           <div>
             <label for="nombreCompleto">Nombre Completo</label>
@@ -48,6 +48,25 @@
               name="correoE"
               class="input"
             />
+          </div>
+        </div>
+        <div class="cont_input">
+          <div>
+            <label for="idLoc">Ciudad</label>
+          </div>
+          <div class="icon-input">
+            <fa-icon
+              [icon]="icons.iconsRegister.location"
+              class="iconB"
+            ></fa-icon>
+
+            <select
+              formControlName="correoE"
+              name="correoE"
+              class="input"
+            >
+            <option *ngFor="let loc of localizacion" value="{{loc.idLoc}}">{{loc.ciudad}}</option>
+          </select>
           </div>
         </div>
         <div class="cont_input">

@@ -10,10 +10,19 @@ const getLocalizaciones = async (req, res) => {
    }
 };
 const getAllEstudiantesByIdLoc = async (req, res) => {
-   const {params}=req
-   console.log(params);
+   const { params } = req;
    try {
       const { result } = await locModel.getAllEstudiantesByIdLoc(params.idLoc); // almacenamos el resultado por si queremos trabajar con el mismo
+      return res.json(result);
+   } catch (err) {
+      console.log(err);
+      return res.status(500).send("error");
+   }
+};
+const getAllEmpleadosByIdLoc = async (req, res) => {
+   const { params } = req;
+   try {
+      const { result } = await locModel.getAllEmpleadosByIdLoc(params.idLoc); // almacenamos el resultado por si queremos trabajar con el mismo
       return res.json(result);
    } catch (err) {
       console.log(err);
@@ -24,6 +33,7 @@ const getAllEstudiantesByIdLoc = async (req, res) => {
 const locCtr = {
    getLocalizaciones,
    getAllEstudiantesByIdLoc,
+   getAllEmpleadosByIdLoc,
 };
 
 module.exports = locCtr;

@@ -22,6 +22,8 @@ export class EmpleoyeeTableComponent implements OnInit {
     'nombreUsuario',
     'correoE',
     'codigoDocente',
+    'departamento',
+    'ciudad'
   ];
 
   dataSource = new MatTableDataSource<Empleados>();

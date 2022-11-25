@@ -13,6 +13,7 @@ import {
   faFloppyDisk,
   faTrashCan,
   faBan,
+  faMapMarked,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
@@ -32,6 +33,7 @@ export class IconsService {
     correo: faEnvelopesBulk,
     usuario: faChalkboardUser,
     password: faUserLock,
+    location: faMapMarked,
   };
 
   //iconos para el menu del header

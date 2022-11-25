@@ -34,4 +34,12 @@ export class EmpleoyeeService {
   deleteOneEmpleado(id: string) {
     return this.http.delete(`${this.URL}/empleados/${id}`);
   }
+
+  getLocalizacion() {
+    return this.http.get(`${this.URL}/localizacion`);
+  }
+
+  getAllEmpleadosByIdLoc(idLoc: string) {
+    return this.http.get(`${this.URL}/localizacion/buscar/empleado/${idLoc}`);
+  }
 }

@@ -25,10 +25,21 @@ const getAllEstudiantesByIdLoc = async (idLoc) => {
       });
    });
 };
+const getAllEmpleadosByIdLoc = async (idLoc) => {
+   return new Promise((resolve, reject) => {
+      const queryString = "select * from empleado emp inner join localizacion loc on emp.idLoc = loc.idLoc inner join departamentos dep on dep.idDepartamento = loc.idDepartamento and emp.idLoc = ?"; //query para la peticion
+      db.query(queryString,[idLoc], (error, result, fields) => {
+         if (error) return reject(error);
+         const data = { result, fields };
+         return resolve(data);
+      });
+   });
+};
 
 const locModel = {
     getLocalizaciones,
-    getAllEstudiantesByIdLoc
+    getAllEstudiantesByIdLoc,
+    getAllEmpleadosByIdLoc
  };
  
  module.exports = locModel;
